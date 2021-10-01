@@ -18,6 +18,7 @@ namespace CarRentProject
 
         public string ConnectionString { get => connectionString; set => connectionString = value; }
 
+
         public CarClass[] ReadAllCars()
         {
             List<CarClass> result = new();
@@ -77,16 +78,46 @@ namespace CarRentProject
             return result.ToArray();
         }
 
-        //Add New Car
-        public void CreateCar(CarClass newcar)
+        public CarClass[] ReadCarByMake(string make = "BMW")
         {
-            //Adds a new car to the db
+            List<CarClass> result = new List<CarClass>();
             using (var connection = new SQLiteConnection(ConnectionString))
             {
                 connection.Open();
 
                 var command = connection.CreateCommand();
-                command.CommandText = @"INSERT INTO cars (type, make, model, price_per_day, number_of_passengers, color, avail) VALUES (@type, @make, @model, @price, @numOfPass, @color, @avail)";
+                command.CommandText = @"SELECT * FROM cars WHERE make = @make";
+                command.Parameters.AddWithValue("@make", make);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        result.Add(new CarClass(id: reader.GetInt32(0),
+                                                model: reader.GetString(3),
+                                                pricePerDay: reader.GetInt32(4),
+                                                passengers: reader.GetInt32(5),
+                                                color: reader.GetString(6),
+                                                availability: reader.GetString(7)));
+                    }
+                }
+
+                connection.Close();
+            }
+            return result.ToArray();
+        }
+
+        //Add New Car
+        public void CreateCar(CarClass newcar)
+        {
+            using (var connection = new SQLiteConnection(ConnectionString))
+            {
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText = @"INSERT INTO cars (type, make, model, 
+                price_per_day, number_of_passengers, color, avail) 
+                VALUES (@type, @make, @model, @price, @numOfPass, @color, @avail)";
 
                 command.Parameters.AddWithValue("@type", newcar.Type);
                 command.Parameters.AddWithValue("@make", newcar.Make);

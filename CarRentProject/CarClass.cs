@@ -49,6 +49,15 @@ namespace CarRentProject
             this.color = color;
             this.availability = availability;
         }
+        public CarClass(int id, string model, int pricePerDay, int passengers, string color, string availability)
+        {
+            this.id = id;
+            this.model = model;
+            this.pricePerDay = pricePerDay;
+            this.passengers = passengers;
+            this.color = color;
+            this.availability = availability;
+        }
 
 
         public int Id { get => id; set => id = value; }
@@ -60,9 +69,23 @@ namespace CarRentProject
         public string Availability { get => availability; set => availability = value; }
         public string Color { get => color; set => color = value; }
 
-        public String AsString()
+        public String AsString(int i = 0)
         {
-            return $"ID: {Id} Type: {Type} Make : {Make}  Model : {Model} Number of passengers: {Passengers} Colour : {Color} {Environment.NewLine}";
+            if (i == 1)
+            {
+                return $"ID: {Id}|| Make : {Make}||  Model : {Model}|| " +
+                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
+                $" Available: {availability}||{Environment.NewLine}";
+            }
+            if (i == 2)
+            {
+                return $"ID: {Id}|| Model : {Model}|| " +
+                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
+                $" Available: {availability}||{Environment.NewLine}";
+            }
+            return $"ID: {Id}|| Type: {Type}|| Make : {Make}||  Model : {Model}|| " +
+                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
+                $" Available: {availability}||{Environment.NewLine}";
         }
     }
 }
