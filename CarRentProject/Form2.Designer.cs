@@ -44,6 +44,8 @@ namespace CarRentProject
             this.numberTextBox = new System.Windows.Forms.TextBox();
             this.colorTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button3
@@ -59,7 +61,7 @@ namespace CarRentProject
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 35);
+            this.label1.Location = new System.Drawing.Point(26, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 15);
             this.label1.TabIndex = 5;
@@ -68,7 +70,7 @@ namespace CarRentProject
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 87);
+            this.label2.Location = new System.Drawing.Point(26, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 15);
             this.label2.TabIndex = 6;
@@ -77,7 +79,7 @@ namespace CarRentProject
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 284);
+            this.label7.Location = new System.Drawing.Point(26, 328);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 15);
             this.label7.TabIndex = 11;
@@ -86,7 +88,7 @@ namespace CarRentProject
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(26, 235);
+            this.label8.Location = new System.Drawing.Point(26, 279);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 30);
             this.label8.TabIndex = 12;
@@ -95,7 +97,7 @@ namespace CarRentProject
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(26, 196);
+            this.label9.Location = new System.Drawing.Point(26, 240);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(33, 15);
             this.label9.TabIndex = 13;
@@ -104,7 +106,7 @@ namespace CarRentProject
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(26, 141);
+            this.label10.Location = new System.Drawing.Point(26, 185);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 15);
             this.label10.TabIndex = 14;
@@ -113,7 +115,7 @@ namespace CarRentProject
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(106, 336);
+            this.checkBox1.Location = new System.Drawing.Point(106, 380);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(52, 19);
             this.checkBox1.TabIndex = 15;
@@ -122,42 +124,42 @@ namespace CarRentProject
             // 
             // typeTextBox
             // 
-            this.typeTextBox.Location = new System.Drawing.Point(106, 32);
+            this.typeTextBox.Location = new System.Drawing.Point(106, 76);
             this.typeTextBox.Name = "typeTextBox";
             this.typeTextBox.Size = new System.Drawing.Size(229, 23);
             this.typeTextBox.TabIndex = 16;
             // 
             // makeTextBox
             // 
-            this.makeTextBox.Location = new System.Drawing.Point(106, 87);
+            this.makeTextBox.Location = new System.Drawing.Point(106, 131);
             this.makeTextBox.Name = "makeTextBox";
             this.makeTextBox.Size = new System.Drawing.Size(229, 23);
             this.makeTextBox.TabIndex = 17;
             // 
             // modelTextBox
             // 
-            this.modelTextBox.Location = new System.Drawing.Point(106, 133);
+            this.modelTextBox.Location = new System.Drawing.Point(106, 177);
             this.modelTextBox.Name = "modelTextBox";
             this.modelTextBox.Size = new System.Drawing.Size(229, 23);
             this.modelTextBox.TabIndex = 18;
             // 
             // priceTextBox
             // 
-            this.priceTextBox.Location = new System.Drawing.Point(106, 188);
+            this.priceTextBox.Location = new System.Drawing.Point(106, 232);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(229, 23);
             this.priceTextBox.TabIndex = 19;
             // 
             // numberTextBox
             // 
-            this.numberTextBox.Location = new System.Drawing.Point(106, 232);
+            this.numberTextBox.Location = new System.Drawing.Point(106, 276);
             this.numberTextBox.Name = "numberTextBox";
             this.numberTextBox.Size = new System.Drawing.Size(229, 23);
             this.numberTextBox.TabIndex = 20;
             // 
             // colorTextBox
             // 
-            this.colorTextBox.Location = new System.Drawing.Point(106, 276);
+            this.colorTextBox.Location = new System.Drawing.Point(106, 320);
             this.colorTextBox.Name = "colorTextBox";
             this.colorTextBox.Size = new System.Drawing.Size(229, 23);
             this.colorTextBox.TabIndex = 21;
@@ -172,11 +174,29 @@ namespace CarRentProject
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(106, 23);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(229, 23);
+            this.idTextBox.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 15);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "ID";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 495);
+            this.Controls.Add(this.idTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.colorTextBox);
             this.Controls.Add(this.numberTextBox);
@@ -216,5 +236,7 @@ namespace CarRentProject
         private System.Windows.Forms.TextBox numberTextBox;
         private System.Windows.Forms.TextBox colorTextBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.Label label3;
     }
 }

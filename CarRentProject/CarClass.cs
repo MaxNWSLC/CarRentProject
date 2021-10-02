@@ -58,6 +58,10 @@ namespace CarRentProject
             this.color = color;
             this.availability = availability;
         }
+        public CarClass(int id)
+        {
+            this.id = id;
+        }
 
 
         public int Id { get => id; set => id = value; }

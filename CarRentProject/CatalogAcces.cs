@@ -108,7 +108,7 @@ namespace CarRentProject
         }
 
         //Add New Car
-        public void CreateCar(CarClass newcar)
+        public void CreateCar(CarClass car)
         {
             using (var connection = new SQLiteConnection(ConnectionString))
             {
@@ -119,13 +119,102 @@ namespace CarRentProject
                 price_per_day, number_of_passengers, color, avail) 
                 VALUES (@type, @make, @model, @price, @numOfPass, @color, @avail)";
 
-                command.Parameters.AddWithValue("@type", newcar.Type);
-                command.Parameters.AddWithValue("@make", newcar.Make);
-                command.Parameters.AddWithValue("@model", newcar.Model);
-                command.Parameters.AddWithValue("@price", newcar.PricePerDay);
-                command.Parameters.AddWithValue("@numOfPass", newcar.Passengers);
-                command.Parameters.AddWithValue("@color", newcar.Color);
-                command.Parameters.AddWithValue("@avail", newcar.Availability);
+                command.Parameters.AddWithValue("@type", car.Type);
+                command.Parameters.AddWithValue("@make", car.Make);
+                command.Parameters.AddWithValue("@model", car.Model);
+                command.Parameters.AddWithValue("@price", car.PricePerDay);
+                command.Parameters.AddWithValue("@numOfPass", car.Passengers);
+                command.Parameters.AddWithValue("@color", car.Color);
+                command.Parameters.AddWithValue("@avail", car.Availability);
+
+                try
+                {
+                    int count = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                connection.Close();
+            }
+        }
+        //Update a Car
+        public void UpdateCar(CarClass car)
+        {
+            using (var connection = new SQLiteConnection(ConnectionString))
+            {
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText = @"UPDATE cars 
+                SET 
+                type = @type, make = @make, model = @model, price_per_day = @price, 
+                number_of_passengers = @numOfPass, color = @color, avail = @avail
+                WHERE id = @id";
+
+                command.Parameters.AddWithValue("@id", car.Id);
+                command.Parameters.AddWithValue("@type", car.Type);
+                command.Parameters.AddWithValue("@make", car.Make);
+                command.Parameters.AddWithValue("@model", car.Model);
+                command.Parameters.AddWithValue("@price", car.PricePerDay);
+                command.Parameters.AddWithValue("@numOfPass", car.Passengers);
+                command.Parameters.AddWithValue("@color", car.Color);
+                command.Parameters.AddWithValue("@avail", car.Availability);
+
+                try
+                {
+                    int count = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                connection.Close();
+            }
+        }
+       
+
+        //Delete a Car
+        public void DeleteCar(CarClass car)
+        {
+            using (var connection = new SQLiteConnection(ConnectionString))
+            {
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText = @"DELETE FROM cars
+                                      WHERE id = @id";
+
+                command.Parameters.AddWithValue("@id", car.Id);
+
+                try
+                {
+                    int count = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                connection.Close();
+            }
+        }
+        //Rent a Car
+        public void RentCar(CarClass car)
+        {
+            using (var connection = new SQLiteConnection(ConnectionString))
+            {
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText =
+                    @"UPDATE cars SET avail = CASE avail WHEN @true THEN @false ELSE @true END WHERE id = @id";
+
+                command.Parameters.AddWithValue("@id", car.Id);
+                command.Parameters.AddWithValue("@true", "true");
+                command.Parameters.AddWithValue("@false", "false");
 
                 try
                 {

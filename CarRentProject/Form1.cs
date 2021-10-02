@@ -95,11 +95,6 @@ namespace CarRentProject
             showTheInfo(1);
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            Form2 CreateNewCar = new Form2();
-            CreateNewCar.ShowDialog();
-        }
 
                     //BMW
         private void button10_Click(object sender, EventArgs e)
@@ -146,6 +141,33 @@ namespace CarRentProject
         {
             typeArray = ca.ReadCarByMake("Vauxhall");
             showTheInfo(2);
+        }
+
+//----------------------------------------------------------------------------//
+                    //Add a Car
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Form2 CreateNewCar = new Form2("Create");
+            CreateNewCar.ShowDialog();
+        }
+                    //Update or rent a car
+        private void button17_Click(object sender, EventArgs e)
+        {
+            Form2 CreateNewCar = new Form2("Update");
+            CreateNewCar.ShowDialog();
+        }
+
+                    // Delete a car
+        private void button18_Click(object sender, EventArgs e)
+        {
+            Form2 CreateNewCar = new Form2("Delete");
+            CreateNewCar.ShowDialog();
+        }
+                    //Rent a Car 
+        private void button19_Click(object sender, EventArgs e)
+        {
+            Form2 CreateNewCar = new Form2("Rent");
+            CreateNewCar.ShowDialog();
         }
     }
 }
