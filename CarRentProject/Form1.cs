@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.SQLite;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRentProject
@@ -24,16 +16,6 @@ namespace CarRentProject
             typeArray = ca.ReadCarByType();
         }
 
-        // method to keep the code dry!
-        private void showTheInfo(int s)
-        {
-            string allCars = "";
-            for (int i = 0; i < typeArray.Length; i++)
-            {
-                allCars = allCars + typeArray[i].AsString(s);
-            }
-            richTextBox1.Text = allCars;
-        }
 
                     //Show all
         private void button1_Click(object sender, EventArgs e)
@@ -95,11 +77,6 @@ namespace CarRentProject
             showTheInfo(1);
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            Form2 CreateNewCar = new Form2();
-            CreateNewCar.ShowDialog();
-        }
 
                     //BMW
         private void button10_Click(object sender, EventArgs e)
@@ -146,6 +123,45 @@ namespace CarRentProject
         {
             typeArray = ca.ReadCarByMake("Vauxhall");
             showTheInfo(2);
+        }
+
+//----------------------------------------------------------------------------//
+                    //Add a Car
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Form2 CreateNewCar = new Form2("Create");
+            CreateNewCar.ShowDialog();
+        }
+                    //Update or rent a car
+        private void button17_Click(object sender, EventArgs e)
+        {
+            Form2 CreateNewCar = new Form2("Update");
+            CreateNewCar.ShowDialog();
+        }
+
+                    // Delete a car
+        private void button18_Click(object sender, EventArgs e)
+        {
+            Form2 CreateNewCar = new Form2("Delete");
+            CreateNewCar.ShowDialog();
+        }
+                    //Rent a Car 
+        private void button19_Click(object sender, EventArgs e)
+        {
+            Form2 CreateNewCar = new Form2("Rent");
+            CreateNewCar.ShowDialog();
+        }
+
+
+        // method to keep the code dry!
+        private void showTheInfo(int s)
+        {
+            string allCars = "";
+            for (int i = 0; i < typeArray.Length; i++)
+            {
+                allCars = allCars + typeArray[i].AsString(s);
+            }
+            richTextBox1.Text = allCars;
         }
     }
 }
