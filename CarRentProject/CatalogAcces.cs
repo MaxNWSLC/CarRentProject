@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarRentProject
 {
@@ -18,7 +15,7 @@ namespace CarRentProject
 
         public string ConnectionString { get => connectionString; set => connectionString = value; }
 
-
+        //==================        Show all Cars       ================================//
         public CarClass[] ReadAllCars()
         {
             List<CarClass> result = new();
@@ -48,6 +45,8 @@ namespace CarRentProject
             }
             return result.ToArray();
         }
+        //=====================================================================================//
+        //      Read cars by Type
         public CarClass[] ReadCarByType(string type = "Compact")
         {
             List<CarClass> result = new List<CarClass>();
@@ -78,6 +77,7 @@ namespace CarRentProject
             return result.ToArray();
         }
 
+        //      Read cars By Make
         public CarClass[] ReadCarByMake(string make = "BMW")
         {
             List<CarClass> result = new List<CarClass>();
@@ -107,6 +107,7 @@ namespace CarRentProject
             return result.ToArray();
         }
 
+        //=================================--------------------------==============================//
         //Add New Car
         public void CreateCar(CarClass car)
         {
@@ -139,6 +140,7 @@ namespace CarRentProject
                 connection.Close();
             }
         }
+
         //Update a Car
         public void UpdateCar(CarClass car)
         {
@@ -201,6 +203,7 @@ namespace CarRentProject
                 connection.Close();
             }
         }
+
         //Rent a Car
         public void RentCar(CarClass car)
         {

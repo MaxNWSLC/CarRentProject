@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarRentProject
@@ -96,46 +89,28 @@ namespace CarRentProject
             switch (scope)
             {
                 case "Rent":
-                    RentFun(id);
+                    CarClass RentCar = new CarClass(id);
+                    ca.RentCar(RentCar);
                     break;
                 case "Delete":
-                    DleteFun(id);
+                    CarClass DeleteCar = new CarClass(id);
+                    ca.DeleteCar(DeleteCar);
                     break;
                 case "Update":
-                    UpdateFun(id, type, make, model, price, number, color, avail);
+                    CarClass UpdateCar = new CarClass(id, type, make, model, price, number, color, avail);
+                    ca.UpdateCar(UpdateCar);
                     break;
                 default:
-                    CreateFun(type, make, model, price, number, color, avail);
+                    CarClass CreateCar = new CarClass(type, make, model, price, number, color, avail);
+                    ca.CreateCar(CreateCar);
                     break;
             }
-
             this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void CreateFun(string type, string make, string model, int price, int number, string color, string avail)
-        {
-            CarClass Car = new CarClass( type, make, model, price, number, color, avail);
-            ca.CreateCar(Car);
-        }
-        private void UpdateFun(int id, string type, string make, string model, int price, int number, string color, string avail)
-        {
-            CarClass Car = new CarClass(id, type, make, model, price, number, color, avail);
-            ca.UpdateCar(Car);
-        }
-        private void DleteFun(int id)
-        {
-            CarClass Car = new CarClass(id);
-            ca.DeleteCar(Car);
-        }
-        private void RentFun(int id)
-        {
-            CarClass Car = new CarClass(id);
-            ca.RentCar(Car);
         }
     }
 }

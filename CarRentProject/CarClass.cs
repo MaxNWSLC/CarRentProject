@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarRentProject
 {
@@ -75,21 +71,21 @@ namespace CarRentProject
 
         public String AsString(int i = 0)
         {
-            if (i == 1)
+            switch (i)
             {
-                return $"ID: {Id}|| Make : {Make}||  Model : {Model}|| " +
+                case 1:
+                    return $"ID: {Id}|| Make : {Make}||  Model : {Model}|| " +
+                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
+                $" Available: {availability}||{Environment.NewLine}";
+                case 2:
+                    return $"ID: {Id}|| Model : {Model}|| " +
+                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
+                $" Available: {availability}||{Environment.NewLine}";
+                default:
+                    return $"ID: {Id}|| Type: {Type}|| Make : {Make}||  Model : {Model}|| " +
                 $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
                 $" Available: {availability}||{Environment.NewLine}";
             }
-            if (i == 2)
-            {
-                return $"ID: {Id}|| Model : {Model}|| " +
-                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
-                $" Available: {availability}||{Environment.NewLine}";
-            }
-            return $"ID: {Id}|| Type: {Type}|| Make : {Make}||  Model : {Model}|| " +
-                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
-                $" Available: {availability}||{Environment.NewLine}";
         }
     }
 }
