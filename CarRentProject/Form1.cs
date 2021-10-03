@@ -22,12 +22,9 @@ namespace CarRentProject
         {
             carArray = ca.ReadAllCars();
 
-            string allCars = "";
-            for (int i = 0; i < carArray.Length; i++)
-            {
-                allCars = allCars + carArray[i].AsString();
-            }
-            richTextBox1.Text = allCars;
+            dataGridView1.DataSource = carArray;
+            dataGridView1.Columns[2].Visible = true;
+            dataGridView1.Columns[1].Visible = true;
         }
 
                     //Extra
@@ -156,12 +153,23 @@ namespace CarRentProject
         // method to keep the code dry!
         private void showTheInfo(int s)
         {
-            string allCars = "";
-            for (int i = 0; i < typeArray.Length; i++)
+            dataGridView1.DataSource = typeArray;
+            //      Hiding unused Columns in the Data Grid
+            switch (s)
             {
-                allCars = allCars + typeArray[i].AsString(s);
+                case 1:
+                    dataGridView1.Columns[1].Visible = false;
+                    dataGridView1.Columns[2].Visible = true;
+                    break;
+                case 2:
+                    dataGridView1.Columns[2].Visible = false;
+                    dataGridView1.Columns[1].Visible = false;
+                    break;
+                default:
+                    dataGridView1.Columns[2].Visible = true;
+                    dataGridView1.Columns[1].Visible = true;
+                    break;
             }
-            richTextBox1.Text = allCars;
         }
     }
 }

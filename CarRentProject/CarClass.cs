@@ -69,23 +69,11 @@ namespace CarRentProject
         public string Availability { get => availability; set => availability = value; }
         public string Color { get => color; set => color = value; }
 
-        public String AsString(int i = 0)
-        {
-            switch (i)
-            {
-                case 1:
-                    return $"ID: {Id}|| Make : {Make}||  Model : {Model}|| " +
-                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
-                $" Available: {availability}||{Environment.NewLine}";
-                case 2:
-                    return $"ID: {Id}|| Model : {Model}|| " +
-                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
-                $" Available: {availability}||{Environment.NewLine}";
-                default:
-                    return $"ID: {Id}|| Type: {Type}|| Make : {Make}||  Model : {Model}|| " +
-                $"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
-                $" Available: {availability}||{Environment.NewLine}";
-            }
-        }
+        //public String AsString(int i = 0)
+        //{
+        //    return $"ID: {Id}|| Type: {Type}|| Make : {Make}||  Model : {Model}|| " +
+        //$"Price: {PricePerDay}|| Number of passengers: {Passengers}|| Colour : {Color}||" +
+        //$" Available: {availability}||{Environment.NewLine}";
+        //}
     }
 }
